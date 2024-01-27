@@ -36,16 +36,41 @@ body {
 body {
   background-color: var(--color-black);
   color: var(--color-white);
-  font-family: 'Poppins', Arial;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   overflow-x: hidden;
 }
 
-img,svg{
+img,
+svg,
+picture,
+canvas,
+video{
   display: block;
   /* align-items: center; */
   max-width: 100%;
   /* margin: 5px; */
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  overflow-wrap: break-word;
+}
+#root,
+#__next{
+  isolation:isolate;
 }
 
 .swiper-slide{
