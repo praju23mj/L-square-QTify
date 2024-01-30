@@ -84,3 +84,7 @@ a:active{
   text-decoration: none;
   color: inherit;
 }
+
+.swiper-slide{
+  width:auto !important;
+}
