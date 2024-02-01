@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { Component } from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import Hero from './components/Hero/Hero';
 import styles from './App.module.css'
@@ -56,8 +56,8 @@ function App() {
 
   const genrateTopAlbum=async () => {
     try{
-      const data = await fetchTopAlbums();
-      setTopAlbumData(data);
+      const topAlbumSongs = await fetchTopAlbums();
+      setTopAlbumData(topAlbumSongs);
     }catch(err){
       console.log(err)
       return null;
@@ -66,8 +66,8 @@ function App() {
 
   const genrateNewAlbum=async () => {
     try{
-      const data = await fetchNewAlbums();
-      setNewAlbumData(data);
+      const newAlbumData = await fetchNewAlbums();
+      setNewAlbumData(newAlbumData);
     }catch(err){
       console.log(err)
       return null;
@@ -76,9 +76,9 @@ function App() {
 
   const generateFilterSongs = async () => {
     try {
-      const newAlbumSongs = await fetchSongs()
+      const newAlbumData = await fetchSongs()
       // setNewAlbumSongs(newAlbumSongs);
-      setFilteredDataValues(newAlbumSongs);
+      setFilteredDataValues(newAlbumData);
     }
     catch (error) {
       console.log(error)
@@ -97,16 +97,16 @@ function App() {
     generateFilterSongs();
     // setFilteredDataValues(newAlbumSongs);
 
-  }, [])
+  }, []);
   
   return (
     <div >
       <Navbar/>
       <Hero/>
       <div className={styles.sectionWrapper}>
-        <Section type='album' title='Top Albums' data={topAlbumData} />
-        <Section type='album' title='New Albums' data={newAlbumData} />
-        <FilterSection data={newAlbumData} type='songFilter' title='Songs' filteredData={filteredData} filteredDataValues={filteredDataValues} value={value} handleChange={handleChange} handleToggle={handleToggle}/>
+      <Section data = {topAlbumData} title="Top Albums" type="album"/>
+      <Section data = {newAlbumData} title="New Albums" type="album"/>
+      <FilterSection data={newAlbumData} type='songFilter' title='Songs' filteredData={filteredData} filteredDataValues={filteredDataValues} value={value} handleChange={handleChange} handleToggle={handleToggle}/>
       </div>
     </div>
   );
