@@ -36,8 +36,6 @@ function App() {
       <Hero/>
       <Section data = {topAlbumData} title="Top Albums" type="album"/>
       <Section data = {newAlbumData} title="New Albums" type="album"/>
-      {/* <AlbumGrid data={topAlbumData} title="Top Album"/>
-      <AlbumGrid data={newAlbumData} title="New Album"/> */}
     </div>
   );
 }
